@@ -99,13 +99,13 @@
 		010D1F8424F1961E00A8F29D /* Quiz */ = {
 			isa = PBXGroup;
 			children = (
-				010D1F8524F1961E00A8F29D /* AppDelegate.swift */,
-				010D1F8724F1961E00A8F29D /* SceneDelegate.swift */,
-				010D1F8924F1961E00A8F29D /* ViewController.swift */,
-				010D1F8B24F1961E00A8F29D /* Main.storyboard */,
+				010D1FB924F19EF100A8F29D /* Storyboards */,
 				010D1F8E24F1961F00A8F29D /* Assets.xcassets */,
-				010D1F9024F1961F00A8F29D /* LaunchScreen.storyboard */,
-				010D1F9324F1961F00A8F29D /* Info.plist */,
+				010D1FB624F19ECC00A8F29D /* Views */,
+				010D1FB724F19ED500A8F29D /* Controllers */,
+				010D1FB524F19EC100A8F29D /* Model */,
+				010D1FBA24F19F0900A8F29D /* Fonts */,
+				010D1FB824F19EE300A8F29D /* Supporting Files */,
 			);
 			path = Quiz;
 			sourceTree = "<group>";
@@ -126,6 +126,54 @@
 				010D1FA924F1961F00A8F29D /* Info.plist */,
 			);
 			path = QuizUITests;
+			sourceTree = "<group>";
+		};
+		010D1FB524F19EC100A8F29D /* Model */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			name = Model;
+			sourceTree = "<group>";
+		};
+		010D1FB624F19ECC00A8F29D /* Views */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			name = Views;
+			sourceTree = "<group>";
+		};
+		010D1FB724F19ED500A8F29D /* Controllers */ = {
+			isa = PBXGroup;
+			children = (
+				010D1F8924F1961E00A8F29D /* ViewController.swift */,
+			);
+			name = Controllers;
+			sourceTree = "<group>";
+		};
+		010D1FB824F19EE300A8F29D /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				010D1F8524F1961E00A8F29D /* AppDelegate.swift */,
+				010D1F8724F1961E00A8F29D /* SceneDelegate.swift */,
+				010D1F9324F1961F00A8F29D /* Info.plist */,
+			);
+			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		010D1FB924F19EF100A8F29D /* Storyboards */ = {
+			isa = PBXGroup;
+			children = (
+				010D1F9024F1961F00A8F29D /* LaunchScreen.storyboard */,
+				010D1F8B24F1961E00A8F29D /* Main.storyboard */,
+			);
+			name = Storyboards;
+			sourceTree = "<group>";
+		};
+		010D1FBA24F19F0900A8F29D /* Fonts */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			name = Fonts;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -435,6 +483,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 2;
 				DEVELOPMENT_TEAM = PTRW36GG78;
 				INFOPLIST_FILE = Quiz/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 11.0;
@@ -454,6 +503,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 2;
 				DEVELOPMENT_TEAM = PTRW36GG78;
 				INFOPLIST_FILE = Quiz/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 11.0;
