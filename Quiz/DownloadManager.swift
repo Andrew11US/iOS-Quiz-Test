@@ -9,44 +9,26 @@
 import Foundation
 
 struct DownloadManager {
-    static func downloadTest() {
+    static func downloadQuiz(completion: @escaping ([Int]) -> Void) {
         guard let url = URL(string: "http://quiz.o2.pl/api/v1/quizzes/0/100") else { return }
-        
         let request = URLRequest(url: url)
+        var quizIDs: [Int] = []
         
         URLSession.shared.dataTask(with: request) { data, response, error in
             if let data = data {
-                print(data)
-                
                 if let json = try? JSONSerialization.jsonObject(with: data, options: []) {
-                    print(json)
                     guard let dict = json as? [String: AnyObject] else { return }
-                    if let count = dict["count"] as? Int {
-                        print(":>> ", count)
-                    }
-                    var count = 0
+                    
                     if let items = dict["items"] as? [AnyObject] {
                         for item in items {
                             guard let itemDict = item as? [String: AnyObject] else { return }
-                            print("#>>", itemDict["id"])
-                            count += 1
+                            guard let id = itemDict["id"] as? Int else { return }
+                            quizIDs.append(id)
                         }
+                        completion(quizIDs)
                     }
-                    print(count)
                 }
-                
-                //                if let decodedResponse = try? JSONDecoder().decode(Response.self, from: data) {
-                //                    // we have good data – go back to the main thread
-                //                    DispatchQueue.main.async {
-                //                        // update our UI
-                //                        self.results = decodedResponse.results
-                //                    }
-                //                    return
-                //                }
-            } else {
-                print("Fetch failed: \(error?.localizedDescription ?? "Unknown error")")
             }
-            
         }.resume()
     }
     

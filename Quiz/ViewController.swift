@@ -10,13 +10,21 @@ import UIKit
 
 class ViewController: UIViewController {
 
+    var topics: [Int: Topic] = [:]
+    var counter = 0
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         
-//        DownloadManager.downloadTest()
-        
-        DownloadManager.downloadTopic(id: 6546212793951873) { (topic) in
-            print(topic?.questionsCount)
+        DownloadManager.downloadQuiz { ids in
+            ids.forEach { (id) in
+                DownloadManager.downloadTopic(id: id) { (topic) in
+                    guard let topic = topic else { return }
+                    self.topics[id] = topic
+                    self.counter += 1
+                    print("\(self.counter) out of 100")
+                }
+            }
         }
     }
 
