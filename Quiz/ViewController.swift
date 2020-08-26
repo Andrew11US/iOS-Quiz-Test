@@ -16,15 +16,19 @@ class ViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        DownloadManager.downloadQuiz { ids in
-            ids.forEach { (id) in
-                DownloadManager.downloadTopic(id: id) { (topic) in
-                    guard let topic = topic else { return }
-                    self.topics[id] = topic
-                    self.counter += 1
-                    print("\(self.counter) out of 100")
-                }
-            }
+//        DownloadManager.downloadQuiz { ids in
+//            ids.forEach { (id) in
+//                DownloadManager.downloadTopic(id: id) { (topic) in
+//                    guard let topic = topic else { return }
+//                    self.topics[id] = topic
+//                    self.counter += 1
+//                    print("\(self.counter) out of 100")
+//                }
+//            }
+//        }
+        
+        Timer.scheduledTimer(withTimeInterval: 2, repeats: true) { (timer) in
+            print(ConnectionManager.isConnected())
         }
     }
 
