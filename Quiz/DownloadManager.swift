@@ -21,6 +21,19 @@ struct DownloadManager {
                 
                 if let json = try? JSONSerialization.jsonObject(with: data, options: []) {
                     print(json)
+                    guard let dict = json as? [String: AnyObject] else { return }
+                    if let count = dict["count"] as? Int {
+                        print(":>> ", count)
+                    }
+                    var count = 0
+                    if let items = dict["items"] as? [AnyObject] {
+                        for item in items {
+                            guard let itemDict = item as? [String: AnyObject] else { return }
+                            print("#>>", itemDict["id"])
+                            count += 1
+                        }
+                    }
+                    print(count)
                 }
                 
 //                if let decodedResponse = try? JSONDecoder().decode(Response.self, from: data) {
