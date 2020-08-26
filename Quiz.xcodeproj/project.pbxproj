@@ -21,6 +21,7 @@
 		0139A5E424F4485200AC9EBF /* Answer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0139A5E324F4485200AC9EBF /* Answer.swift */; };
 		018D1FF824F6B897006F1627 /* ConnectionManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 018D1FF724F6B897006F1627 /* ConnectionManager.swift */; };
 		018D1FFB24F6BF5E006F1627 /* TestObject.swift in Sources */ = {isa = PBXBuildFile; fileRef = 018D1FFA24F6BF5E006F1627 /* TestObject.swift */; };
+		018D1FFD24F6C575006F1627 /* AnswerRealm.swift in Sources */ = {isa = PBXBuildFile; fileRef = 018D1FFC24F6C575006F1627 /* AnswerRealm.swift */; };
 		C0829517EDC1EE4CEF0A3D1A /* Pods_QuizTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A38EEEF3836D58F5053AD241 /* Pods_QuizTests.framework */; };
 		D4F18D9567A3B6CE15B5A43B /* Pods_Quiz_QuizUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FB1BE789849A2FD376609D41 /* Pods_Quiz_QuizUITests.framework */; };
 		FF424085D2162BF60508D0B9 /* Pods_Quiz.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4EE071857782DB785663AA79 /* Pods_Quiz.framework */; };
@@ -64,6 +65,7 @@
 		0139A5E324F4485200AC9EBF /* Answer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Answer.swift; sourceTree = "<group>"; };
 		018D1FF724F6B897006F1627 /* ConnectionManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ConnectionManager.swift; sourceTree = "<group>"; };
 		018D1FFA24F6BF5E006F1627 /* TestObject.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TestObject.swift; sourceTree = "<group>"; };
+		018D1FFC24F6C575006F1627 /* AnswerRealm.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AnswerRealm.swift; sourceTree = "<group>"; };
 		0B83F61CE2600501A83A73BA /* Pods-Quiz.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Quiz.debug.xcconfig"; path = "Target Support Files/Pods-Quiz/Pods-Quiz.debug.xcconfig"; sourceTree = "<group>"; };
 		4619FDAB9E5C75234D4B042F /* Pods-Quiz-QuizUITests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Quiz-QuizUITests.debug.xcconfig"; path = "Target Support Files/Pods-Quiz-QuizUITests/Pods-Quiz-QuizUITests.debug.xcconfig"; sourceTree = "<group>"; };
 		4EE071857782DB785663AA79 /* Pods_Quiz.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Quiz.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -223,6 +225,7 @@
 			isa = PBXGroup;
 			children = (
 				018D1FFA24F6BF5E006F1627 /* TestObject.swift */,
+				018D1FFC24F6C575006F1627 /* AnswerRealm.swift */,
 			);
 			name = RealmObjects;
 			sourceTree = "<group>";
@@ -498,6 +501,7 @@
 				018D1FF824F6B897006F1627 /* ConnectionManager.swift in Sources */,
 				010D1F8824F1961E00A8F29D /* SceneDelegate.swift in Sources */,
 				0139A5DE24F4357500AC9EBF /* DownloadManager.swift in Sources */,
+				018D1FFD24F6C575006F1627 /* AnswerRealm.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -672,7 +676,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 8;
+				CURRENT_PROJECT_VERSION = 9;
 				DEVELOPMENT_TEAM = PTRW36GG78;
 				INFOPLIST_FILE = Quiz/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 11.0;
@@ -693,7 +697,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 8;
+				CURRENT_PROJECT_VERSION = 9;
 				DEVELOPMENT_TEAM = PTRW36GG78;
 				INFOPLIST_FILE = Quiz/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 11.0;

@@ -6,25 +6,27 @@
 //  Copyright © 2020 Andrii Halabuda. All rights reserved.
 //
 
-struct Topic: Codable {
-    var id: Int
-    var title: String
-    var questionsCount: Int = 0
-    var category: String = ""
-    var imageUrl: String? = nil
-    var questions: [Question] = []
+import RealmSwift
+
+class Topic: Object {
+    @objc dynamic var id: Int = 0
+    @objc dynamic var title: String = ""
+    @objc dynamic var questionsCount: Int = 0
+    @objc dynamic var category: String = ""
+    @objc dynamic var imageUrl: String? = nil
+    var questions = List<Question>()
     //    var progress: Int
     //    var correct: Int
     //    var incorrect: Int
     
-    init(id: Int, title: String, questionsCount: Int, category: String, imageUrl: String? = nil, questions: [Question]) {
-        self.id = id
-        self.title = title
-        self.questionsCount = questionsCount
-        self.category = category
-        self.imageUrl = imageUrl
-        self.questions = questions
-    }
+//    init(id: Int, title: String, questionsCount: Int, category: String, imageUrl: String? = nil, questions: [Question]) {
+//        self.id = id
+//        self.title = title
+//        self.questionsCount = questionsCount
+//        self.category = category
+//        self.imageUrl = imageUrl
+//        self.questions = questions
+//    }
     
     // Initialization from JSON
     init(data: [String: AnyObject]) {
@@ -52,5 +54,23 @@ struct Topic: Codable {
             }
         }
     }
+    
+    required init() {}
+    
+    override static func primaryKey() -> String? {
+        return "id"
+    }
 }
 
+extension Topic {
+    func writeToRealm() {
+        do {
+            try realmFile.write {
+                realmFile.add(self, update: .modified)
+//                realmFile.create(Topic.self)
+            }
+        } catch let error as NSError {
+            debugPrint(error.localizedDescription)
+        }
+    }
+}

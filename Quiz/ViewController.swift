@@ -17,30 +17,35 @@ class ViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-//        DownloadManager.downloadQuiz { ids in
-//            ids.forEach { (id) in
-//                DownloadManager.downloadTopic(id: id) { (topic) in
-//                    guard let topic = topic else { return }
-//                    self.topics[id] = topic
-//                    self.counter += 1
-//                    print("\(self.counter) out of 100")
-//                }
-//            }
-//        }
-        
-        Timer.scheduledTimer(withTimeInterval: 2, repeats: false) { (timer) in
-            print(ConnectionManager.isConnected())
-            let obj = TestObject()
-            obj.name = "TTT"
-            obj.writeToRealm()
+        DownloadManager.downloadQuiz { ids in
+            ids.forEach { (id) in
+                DownloadManager.downloadTopic(id: id) { (topic) in
+                    guard let topic = topic else { return }
+                    self.topics[id] = topic
+                    self.counter += 1
+                    print("\(self.counter) out of 100")
+                    let realm = try! Realm()
+                    try! realm.write {
+                        realm.add(topic)
+                    }
+                }
+            }
         }
+        
+//        Timer.scheduledTimer(withTimeInterval: 2, repeats: false) { (timer) in
+//            print(ConnectionManager.isConnected())
+//            let human = Human(name: "John")
+//            human.cat.append(Cat(name: "Meow"))
+//            human.writeToRealm()
+//            print(human)
+//        }
     }
     
     @IBAction func retreiveData(_ sender: UIButton) {
-        let objects = try! Realm().objects(TestObject.self)
+        let objects = try! Realm().objects(Topic.self)
         
         for obj in objects {
-            print(obj.name)
+            print(obj)
         }
         
     }

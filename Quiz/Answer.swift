@@ -6,11 +6,13 @@
 //  Copyright © 2020 Andrii Halabuda. All rights reserved.
 //
 
-struct Answer: Codable {
-    var order: Int
-    var text: String
-    var imageUrl: String? = nil
-    var isCorrect: Int
+import RealmSwift
+
+class Answer: Object {
+    @objc dynamic var order: Int = 0
+    @objc dynamic var text: String = ""
+    @objc dynamic var imageUrl: String? = nil
+    @objc dynamic var isCorrect: Int = 0
     
     init(order: Int, text: String, isCorrect: Int, imageUrl: String?) {
         self.order = order
@@ -26,4 +28,12 @@ struct Answer: Codable {
         self.imageUrl = data["url"] as? String
         self.isCorrect = data["isCorrect"] as? Int ?? 0
     }
+    
+    required init() {}
+    
+//    override static func primaryKey() -> String? {
+//        return "text"
+//    }
 }
+
+

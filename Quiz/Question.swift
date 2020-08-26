@@ -6,18 +6,20 @@
 //  Copyright © 2020 Andrii Halabuda. All rights reserved.
 //
 
-struct Question: Codable {
-    var order: Int
-    var text: String
-    var imageUrl: String? = nil
-    var answers: [Answer] = []
+import RealmSwift
+
+class Question: Object {
+    @objc dynamic var order: Int = 0
+    @objc dynamic var text: String = ""
+    @objc dynamic var imageUrl: String? = nil
+    var answers = List<Answer>()
     
-    init(order: Int, text: String, imageUrl: String?, answers: [Answer]) {
-        self.order = order
-        self.text = text
-        self.imageUrl = imageUrl
-        self.answers = answers
-    }
+//    init(order: Int, text: String, imageUrl: String?, answers: [Answer]) {
+//        self.order = order
+//        self.text = text
+//        self.imageUrl = imageUrl
+//        self.answers = answers
+//    }
     
     // Initialization from JSON
     init(data: [String: AnyObject]) {
@@ -32,4 +34,10 @@ struct Question: Codable {
             }
         }
     }
+    
+    required init() {}
+    
+//    override static func primaryKey() -> String? {
+//        return "text"
+//    }
 }
