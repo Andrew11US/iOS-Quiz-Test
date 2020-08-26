@@ -13,7 +13,11 @@ class ViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        DownloadManager.downloadTest()
+//        DownloadManager.downloadTest()
+        
+        DownloadManager.downloadTopic(id: 6546212793951873) { (topic) in
+            print(topic?.questionsCount)
+        }
     }
 
 

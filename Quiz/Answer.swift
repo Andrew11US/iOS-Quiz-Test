@@ -9,7 +9,7 @@
 struct Answer: Codable {
     var order: Int
     var text: String
-    var imageUrl: String?
+    var imageUrl: String? = nil
     var isCorrect: Int
     
     init(order: Int, text: String, isCorrect: Int, imageUrl: String?) {
@@ -23,7 +23,7 @@ struct Answer: Codable {
     init(data: [String: AnyObject]) {
         self.order = data["order"] as? Int ?? 0
         self.text = data["text"] as? String ?? "no data"
-        self.imageUrl = data["url"] as? String ?? ""
+        self.imageUrl = data["url"] as? String
         self.isCorrect = data["isCorrect"] as? Int ?? 0
     }
 }

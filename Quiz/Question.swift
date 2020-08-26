@@ -9,7 +9,7 @@
 struct Question: Codable {
     var order: Int
     var text: String
-    var imageUrl: String?
+    var imageUrl: String? = nil
     var answers: [Answer] = []
     
     init(order: Int, text: String, imageUrl: String?, answers: [Answer]) {
@@ -23,11 +23,12 @@ struct Question: Codable {
     init(data: [String: AnyObject]) {
         self.order = data["order"] as? Int ?? 0
         self.text = data["text"] as? String ?? "no data"
-        self.imageUrl = data["url"] as? String ?? ""
+        self.imageUrl = data["url"] as? String
         if let answers = data["answers"] as? [AnyObject] {
             for answer in answers {
-                let answ = Answer(data: answer as! [String: AnyObject]) // TODO: change force unwrap
-                self.answers.append(answ)
+                guard let answerDict = answer as? [String: AnyObject] else { return }
+                let answerFromJson = Answer(data: answerDict)
+                self.answers.append(answerFromJson)
             }
         }
     }
