@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import RealmSwift
 
 class ViewController: UIViewController {
 
@@ -27,9 +28,21 @@ class ViewController: UIViewController {
 //            }
 //        }
         
-        Timer.scheduledTimer(withTimeInterval: 2, repeats: true) { (timer) in
+        Timer.scheduledTimer(withTimeInterval: 2, repeats: false) { (timer) in
             print(ConnectionManager.isConnected())
+            let obj = TestObject()
+            obj.name = "TTT"
+            obj.writeToRealm()
         }
+    }
+    
+    @IBAction func retreiveData(_ sender: UIButton) {
+        let objects = try! Realm().objects(TestObject.self)
+        
+        for obj in objects {
+            print(obj.name)
+        }
+        
     }
 
 
