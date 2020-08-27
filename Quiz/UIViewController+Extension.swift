@@ -8,7 +8,7 @@
 
 import UIKit
 
-public extension UIViewController {
+extension UIViewController {
     func showAlertWithTitle(_ title: String, message: String) {
         let alertVC = UIAlertController(title: title, message: message, preferredStyle: .alert)
         let action = UIAlertAction(title: "Dismiss", style: .cancel, handler: nil)
@@ -19,16 +19,21 @@ public extension UIViewController {
         }
     }
     
-    internal func addSpinner(_ spinner: SpinnerViewController) {
+    func addSpinner(_ spinner: SpinnerViewController) {
         addChild(spinner)
         spinner.view.frame = view.frame
         view.addSubview(spinner.view)
         spinner.didMove(toParent: self)
     }
 
-    internal func removeSpinner(_ spinner: SpinnerViewController) {
+    func removeSpinner(_ spinner: SpinnerViewController) {
         spinner.willMove(toParent: nil)
         spinner.view.removeFromSuperview()
         spinner.removeFromParent()
+    }
+    
+    func createNotification(name: Notification.Name) {
+        let notification = Notification(name: name)
+        NotificationCenter.default.post(notification)
     }
 }

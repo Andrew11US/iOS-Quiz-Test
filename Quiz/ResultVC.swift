@@ -30,6 +30,7 @@ class ResultVC: UIViewController {
     }
     
     @IBAction func backToQuizzesTapped(_ sender: UIButton) {
+        self.createNotification(name: .didUpdateQuiz)
         self.navigationController?.popToRootViewController(animated: true)
     }
     

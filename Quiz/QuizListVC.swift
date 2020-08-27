@@ -22,6 +22,8 @@ class QuizListVC: UIViewController {
         
         initializeDBFromEndpoint()
         retrieveDataFromDB()
+        
+        NotificationCenter.default.addObserver(self, selector: #selector(handleQuizChanges), name: .didUpdateQuiz, object: nil)
     }
     
     private func retrieveDataFromDB() {
@@ -33,6 +35,17 @@ class QuizListVC: UIViewController {
             }
             quizzesTableView.reloadData()
         }
+    }
+    
+    @objc private func handleQuizChanges() {
+        topics = []
+        let topics = try! Realm().objects(Topic.self)
+        
+        for topic in topics {
+            self.topics.append(topic)
+        }
+        quizzesTableView.reloadData()
+        
     }
     
     private func initializeDBFromEndpoint() {
