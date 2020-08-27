@@ -16,6 +16,10 @@
                     <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" largeTitles="YES" id="XUI-kM-tun">
                         <rect key="frame" x="0.0" y="44" width="414" height="96"/>
                         <autoresizingMask key="autoresizingMask"/>
+                        <color key="tintColor" red="0.65954603860000005" green="0.54490247780000001" blue="1" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                        <textAttributes key="largeTitleTextAttributes">
+                            <color key="textColor" red="0.65954603860000005" green="0.54490247780000001" blue="1" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                        </textAttributes>
                     </navigationBar>
                     <connections>
                         <segue destination="BYZ-38-t0r" kind="relationship" relationship="rootViewController" id="74J-RG-N7B"/>
@@ -112,43 +116,78 @@
                                 <color key="tintColor" red="0.65954603860000005" green="0.54490247780000001" blue="1" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                             </progressView>
                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="fillEqually" spacingType="standard" translatesAutoresizingMaskIntoConstraints="NO" id="ffU-27-73M">
-                                <rect key="frame" x="20" y="110" width="374" height="752"/>
+                                <rect key="frame" x="20" y="110" width="374" height="742"/>
                                 <subviews>
-                                    <textView clipsSubviews="YES" contentMode="scaleToFill" bounces="NO" bouncesZoom="NO" editable="NO" textAlignment="center" adjustsFontForContentSizeCategory="YES" selectable="NO" translatesAutoresizingMaskIntoConstraints="NO" id="6Zw-GJ-Ggq">
-                                        <rect key="frame" x="0.0" y="0.0" width="374" height="372"/>
+                                    <textView clipsSubviews="YES" contentMode="scaleToFill" bounces="NO" bouncesZoom="NO" editable="NO" text="Question" textAlignment="center" adjustsFontForContentSizeCategory="YES" selectable="NO" translatesAutoresizingMaskIntoConstraints="NO" id="6Zw-GJ-Ggq">
+                                        <rect key="frame" x="0.0" y="0.0" width="374" height="367"/>
                                         <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
-                                        <string key="text">Lorem ipsum dolor sit er elit lamet, consectetaur cillium adipisicing pecu, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum. Nam liber te conscient to factor tum poen legum odioque civiuda.</string>
                                         <color key="textColor" systemColor="labelColor" cocoaTouchSystemColor="darkTextColor"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="32"/>
                                         <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
                                     </textView>
-                                    <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="fillEqually" spacingType="standard" translatesAutoresizingMaskIntoConstraints="NO" id="tRN-fe-ZJQ">
-                                        <rect key="frame" x="0.0" y="380" width="374" height="372"/>
+                                    <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="fillEqually" spacing="15" translatesAutoresizingMaskIntoConstraints="NO" id="tRN-fe-ZJQ">
+                                        <rect key="frame" x="0.0" y="375" width="374" height="367"/>
                                         <subviews>
-                                            <button hidden="YES" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="W6J-HF-skX" customClass="AnswerButton" customModule="Quiz" customModuleProvider="target">
-                                                <rect key="frame" x="0.0" y="0.0" width="46" height="0.0"/>
-                                                <state key="normal" title="Button"/>
+                                            <button hidden="YES" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="tailTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="W6J-HF-skX" customClass="AnswerButton" customModule="Quiz" customModuleProvider="target">
+                                                <rect key="frame" x="0.0" y="0.0" width="50" height="0.0"/>
+                                                <color key="backgroundColor" red="0.65954603860000005" green="0.54490247780000001" blue="1" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                                                <fontDescription key="fontDescription" type="boldSystem" pointSize="15"/>
+                                                <state key="normal" title="Button">
+                                                    <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                </state>
+                                                <userDefinedRuntimeAttributes>
+                                                    <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
+                                                        <real key="value" value="12"/>
+                                                    </userDefinedRuntimeAttribute>
+                                                </userDefinedRuntimeAttributes>
                                                 <connections>
                                                     <action selector="checkAnswerTapped:" destination="XWy-fE-nur" eventType="touchUpInside" id="HBW-u4-lw9"/>
                                                 </connections>
                                             </button>
-                                            <button hidden="YES" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="uyv-6w-2hv" customClass="AnswerButton" customModule="Quiz" customModuleProvider="target">
-                                                <rect key="frame" x="0.0" y="0.0" width="46" height="0.0"/>
-                                                <state key="normal" title="Button"/>
+                                            <button hidden="YES" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="tailTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="uyv-6w-2hv" customClass="AnswerButton" customModule="Quiz" customModuleProvider="target">
+                                                <rect key="frame" x="0.0" y="0.0" width="50" height="0.0"/>
+                                                <color key="backgroundColor" red="0.65954603860000005" green="0.54490247780000001" blue="1" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                                                <fontDescription key="fontDescription" type="boldSystem" pointSize="15"/>
+                                                <state key="normal" title="Button">
+                                                    <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                </state>
+                                                <userDefinedRuntimeAttributes>
+                                                    <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
+                                                        <real key="value" value="12"/>
+                                                    </userDefinedRuntimeAttribute>
+                                                </userDefinedRuntimeAttributes>
                                                 <connections>
                                                     <action selector="checkAnswerTapped:" destination="XWy-fE-nur" eventType="touchUpInside" id="RNO-By-Nuc"/>
                                                 </connections>
                                             </button>
-                                            <button hidden="YES" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="RgH-25-RiZ" customClass="AnswerButton" customModule="Quiz" customModuleProvider="target">
-                                                <rect key="frame" x="0.0" y="0.0" width="46" height="0.0"/>
-                                                <state key="normal" title="Button"/>
+                                            <button hidden="YES" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="tailTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="RgH-25-RiZ" customClass="AnswerButton" customModule="Quiz" customModuleProvider="target">
+                                                <rect key="frame" x="0.0" y="0.0" width="50" height="0.0"/>
+                                                <color key="backgroundColor" red="0.65954603860000005" green="0.54490247780000001" blue="1" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                                                <fontDescription key="fontDescription" type="boldSystem" pointSize="15"/>
+                                                <state key="normal" title="Button">
+                                                    <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                </state>
+                                                <userDefinedRuntimeAttributes>
+                                                    <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
+                                                        <real key="value" value="12"/>
+                                                    </userDefinedRuntimeAttribute>
+                                                </userDefinedRuntimeAttributes>
                                                 <connections>
                                                     <action selector="checkAnswerTapped:" destination="XWy-fE-nur" eventType="touchUpInside" id="rtU-U7-jl9"/>
                                                 </connections>
                                             </button>
-                                            <button hidden="YES" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="1cz-jR-TQI" customClass="AnswerButton" customModule="Quiz" customModuleProvider="target">
-                                                <rect key="frame" x="0.0" y="0.0" width="46" height="0.0"/>
-                                                <state key="normal" title="Button"/>
+                                            <button hidden="YES" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="tailTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="1cz-jR-TQI" customClass="AnswerButton" customModule="Quiz" customModuleProvider="target">
+                                                <rect key="frame" x="0.0" y="0.0" width="50" height="0.0"/>
+                                                <color key="backgroundColor" red="0.65954603860000005" green="0.54490247780000001" blue="1" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                                                <fontDescription key="fontDescription" type="boldSystem" pointSize="15"/>
+                                                <state key="normal" title="Button">
+                                                    <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                </state>
+                                                <userDefinedRuntimeAttributes>
+                                                    <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
+                                                        <real key="value" value="12"/>
+                                                    </userDefinedRuntimeAttribute>
+                                                </userDefinedRuntimeAttributes>
                                                 <connections>
                                                     <action selector="checkAnswerTapped:" destination="XWy-fE-nur" eventType="touchUpInside" id="ja3-Ic-yKH"/>
                                                 </connections>
@@ -162,7 +201,7 @@
                         <constraints>
                             <constraint firstItem="ljc-JW-aj7" firstAttribute="leading" secondItem="d1O-80-6so" secondAttribute="leadingMargin" constant="20" id="5Ir-3h-cl0"/>
                             <constraint firstItem="ffU-27-73M" firstAttribute="top" secondItem="ljc-JW-aj7" secondAttribute="bottom" constant="10" id="SwE-ir-Af0"/>
-                            <constraint firstItem="ilv-8w-JBQ" firstAttribute="bottom" secondItem="ffU-27-73M" secondAttribute="bottom" id="Vep-gf-mBC"/>
+                            <constraint firstItem="ilv-8w-JBQ" firstAttribute="bottom" secondItem="ffU-27-73M" secondAttribute="bottom" constant="10" id="Vep-gf-mBC"/>
                             <constraint firstItem="ljc-JW-aj7" firstAttribute="top" secondItem="ilv-8w-JBQ" secondAttribute="top" constant="10" id="esd-gk-76r"/>
                             <constraint firstItem="ilv-8w-JBQ" firstAttribute="trailing" secondItem="ffU-27-73M" secondAttribute="trailing" constant="20" id="f92-h5-8d3"/>
                             <constraint firstAttribute="trailingMargin" secondItem="ljc-JW-aj7" secondAttribute="trailing" constant="20" id="kAL-V7-8zx"/>
@@ -194,16 +233,16 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="fillProportionally" spacingType="standard" translatesAutoresizingMaskIntoConstraints="NO" id="lem-be-Ziw">
-                                <rect key="frame" x="20" y="108" width="374" height="754"/>
+                                <rect key="frame" x="20" y="108" width="374" height="744"/>
                                 <subviews>
                                     <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="10" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="cmc-jV-6dL">
-                                        <rect key="frame" x="0.0" y="0.0" width="374" height="666"/>
+                                        <rect key="frame" x="0.0" y="0.0" width="374" height="656"/>
                                         <fontDescription key="fontDescription" type="boldSystem" pointSize="26"/>
                                         <nil key="textColor"/>
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <button opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="xsD-UC-Ods" customClass="CustomButton" customModule="Quiz" customModuleProvider="target">
-                                        <rect key="frame" x="0.0" y="674" width="374" height="80"/>
+                                        <rect key="frame" x="0.0" y="664" width="374" height="80"/>
                                         <color key="backgroundColor" red="0.65954603860000005" green="0.54490247780000001" blue="1" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                         <constraints>
                                             <constraint firstAttribute="height" constant="80" id="KAS-o6-vPz"/>
@@ -229,7 +268,7 @@
                             <constraint firstItem="lem-be-Ziw" firstAttribute="leading" secondItem="xqY-jq-22v" secondAttribute="leading" constant="20" id="Iro-WQ-ZWP"/>
                             <constraint firstItem="xqY-jq-22v" firstAttribute="trailing" secondItem="lem-be-Ziw" secondAttribute="trailing" constant="20" id="Whb-uM-zVf"/>
                             <constraint firstItem="lem-be-Ziw" firstAttribute="top" secondItem="xqY-jq-22v" secondAttribute="top" constant="20" id="cmV-ga-hkS"/>
-                            <constraint firstItem="xqY-jq-22v" firstAttribute="bottom" secondItem="lem-be-Ziw" secondAttribute="bottom" id="znY-Qd-icG"/>
+                            <constraint firstItem="xqY-jq-22v" firstAttribute="bottom" secondItem="lem-be-Ziw" secondAttribute="bottom" constant="10" id="znY-Qd-icG"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="xqY-jq-22v"/>
                     </view>

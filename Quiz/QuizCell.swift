@@ -16,23 +16,22 @@ class QuizCell: UITableViewCell {
         super.awakeFromNib()
         // Initialization code
     }
-
-    override func setSelected(_ selected: Bool, animated: Bool) {
-        super.setSelected(selected, animated: animated)
-
-        // Configure the view for the selected state
-    }
     
     func configureCell(topic: Topic) {
         titleLbl.text = topic.title
         if topic.latestResult > 0 {
+            if topic.latestResult >= 90 {
+                statusLbl.textColor = .appGreen
+            } else {
+                statusLbl.textColor = .appPurple
+            }
             statusLbl.text = "Latest result: \(topic.latestResult)%"
         } else if topic.progress > 0 {
             let progress = Int((Double(topic.progress) / Double(topic.questionsCount))*100)
             statusLbl.text = "Progress: \(progress)%"
+            statusLbl.textColor = .appYellow
         } else {
             statusLbl.text = ""
         }
     }
-
 }

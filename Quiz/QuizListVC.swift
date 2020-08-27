@@ -101,6 +101,7 @@ extension QuizListVC: UITableViewDelegate, UITableViewDataSource {
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         let topic = topics[indexPath.row]
+        tableView.deselectRow(at: indexPath, animated: true)
         performSegue(withIdentifier: "toQuiz", sender: topic)
     }
     
