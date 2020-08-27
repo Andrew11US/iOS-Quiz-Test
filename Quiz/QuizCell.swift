@@ -25,7 +25,14 @@ class QuizCell: UITableViewCell {
     
     func configureCell(topic: Topic) {
         titleLbl.text = topic.title
-        statusLbl.text = String(topic.progress)
+        if topic.latestResult > 0 {
+            statusLbl.text = "Latest result: \(topic.latestResult)%"
+        } else if topic.progress > 0 {
+            let progress = Int((Double(topic.progress) / Double(topic.questionsCount))*100)
+            statusLbl.text = "Progress: \(progress)%"
+        } else {
+            statusLbl.text = ""
+        }
     }
 
 }

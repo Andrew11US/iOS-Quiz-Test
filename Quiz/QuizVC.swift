@@ -15,6 +15,7 @@ class QuizVC: UIViewController {
     @IBOutlet weak var answer2: AnswerButton!
     @IBOutlet weak var answer3: AnswerButton!
     @IBOutlet weak var answer4: AnswerButton!
+    @IBOutlet weak var progressView: UIProgressView!
     
     var topic: Topic?
     var answerButtons: [AnswerButton] = []
@@ -33,10 +34,8 @@ class QuizVC: UIViewController {
         
         guard let topic = topic else { return }
         navigationItem.title = topic.title
-//        currectQuestion = topic.progress
-//        correct = topic.correct
-//        incorrect = topic.incorrect
         generateQuestion(topic: topic)
+        progressView.progress = Float(Double(topic.progress) / Double(topic.questionsCount))
     }
     
     @IBAction func checkAnswerTapped(_ sender: AnswerButton) {
@@ -53,7 +52,7 @@ class QuizVC: UIViewController {
             topic.progress += 1
             realm.add(topic, update: .modified)
         }
-        
+        progressView.progress = Float(Double(topic.progress) / Double(topic.questionsCount))
         if topic.progress < topic.questionsCount {
             generateQuestion(topic: topic)
         } else {
