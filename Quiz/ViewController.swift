@@ -58,12 +58,12 @@ class ViewController: UIViewController {
         addSpinner(spinner)
         DownloadManager.downloadQuiz { ids in
             ids.forEach { (id) in
-                DownloadManager.downloadTopic(id: id) { (topic) in
+                DownloadManager.downloadTopic(id: id) { topic in
                     guard let topic = topic else { return }
                     self.topics[id] = topic
                     self.counter += 1
                     print("\(self.counter) out of \(ids.count)")
-                    if id == ids[ids.count-1] {
+                    if id == ids[ids.count - 1] {
                         DispatchQueue.main.async {
                             self.removeSpinner(self.spinner)
                         }

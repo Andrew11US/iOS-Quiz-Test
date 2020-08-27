@@ -9,7 +9,6 @@
 import UIKit
 
 public extension UIViewController {
-    
     func showAlertWithTitle(_ title: String, message: String) {
         let alertVC = UIAlertController(title: title, message: message, preferredStyle: .alert)
         let action = UIAlertAction(title: "Dismiss", style: .cancel, handler: nil)
