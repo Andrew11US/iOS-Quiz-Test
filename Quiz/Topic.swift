@@ -15,9 +15,11 @@ class Topic: Object {
     @objc dynamic var category: String = ""
     @objc dynamic var imageUrl: String? = nil
     var questions = List<Question>()
-    //    var progress: Int
-    //    var correct: Int
-    //    var incorrect: Int
+    // Tracking progress
+    @objc dynamic var progress: Int = 0
+    @objc dynamic var correct: Int = 0
+    @objc dynamic var incorrect: Int = 0
+    @objc dynamic var latestResult: Int = 0
     
 //    init(id: Int, title: String, questionsCount: Int, category: String, imageUrl: String? = nil, questions: [Question]) {
 //        self.id = id
@@ -59,18 +61,5 @@ class Topic: Object {
     
     override static func primaryKey() -> String? {
         return "id"
-    }
-}
-
-extension Topic {
-    func writeToRealm() {
-        do {
-            try realmFile.write {
-                realmFile.add(self, update: .modified)
-//                realmFile.create(Topic.self)
-            }
-        } catch let error as NSError {
-            debugPrint(error.localizedDescription)
-        }
     }
 }

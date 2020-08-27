@@ -7,10 +7,9 @@
 //
 
 import UIKit
-import Realm
-import RealmSwift
 
-let realmFile = try! Realm()
+// Storing value if bd has already been initialized
+let isInitialized = UserDefaults.standard.bool(forKey: "isInitialized")
 
 @UIApplicationMain
 class AppDelegate: UIResponder, UIApplicationDelegate {
