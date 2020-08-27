@@ -174,17 +174,60 @@
             </objects>
             <point key="canvasLocation" x="702.89855072463774" y="-28.125"/>
         </scene>
-        <!--ResultVC-->
+        <!--Result-->
         <scene sceneID="p9s-yy-LFy">
             <objects>
                 <viewController id="4X8-EF-yCy" customClass="ResultVC" customModule="Quiz" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="lMi-V1-Dgf">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="fillProportionally" spacingType="standard" translatesAutoresizingMaskIntoConstraints="NO" id="lem-be-Ziw">
+                                <rect key="frame" x="20" y="108" width="374" height="754"/>
+                                <subviews>
+                                    <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="10" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="cmc-jV-6dL">
+                                        <rect key="frame" x="0.0" y="0.0" width="374" height="666"/>
+                                        <fontDescription key="fontDescription" type="boldSystem" pointSize="26"/>
+                                        <nil key="textColor"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <button opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="xsD-UC-Ods" customClass="CustomButton" customModule="Quiz" customModuleProvider="target">
+                                        <rect key="frame" x="0.0" y="674" width="374" height="80"/>
+                                        <color key="backgroundColor" red="0.65954603860000005" green="0.54490247780000001" blue="1" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="80" id="KAS-o6-vPz"/>
+                                        </constraints>
+                                        <fontDescription key="fontDescription" type="boldSystem" pointSize="22"/>
+                                        <state key="normal" title="Back to Quizzes">
+                                            <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        </state>
+                                        <userDefinedRuntimeAttributes>
+                                            <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
+                                                <real key="value" value="9"/>
+                                            </userDefinedRuntimeAttribute>
+                                        </userDefinedRuntimeAttributes>
+                                        <connections>
+                                            <action selector="backToQuizzesTapped:" destination="4X8-EF-yCy" eventType="touchUpInside" id="mf2-YI-9ME"/>
+                                        </connections>
+                                    </button>
+                                </subviews>
+                            </stackView>
+                        </subviews>
                         <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                        <constraints>
+                            <constraint firstItem="lem-be-Ziw" firstAttribute="leading" secondItem="xqY-jq-22v" secondAttribute="leading" constant="20" id="Iro-WQ-ZWP"/>
+                            <constraint firstItem="xqY-jq-22v" firstAttribute="trailing" secondItem="lem-be-Ziw" secondAttribute="trailing" constant="20" id="Whb-uM-zVf"/>
+                            <constraint firstItem="lem-be-Ziw" firstAttribute="top" secondItem="xqY-jq-22v" secondAttribute="top" constant="20" id="cmV-ga-hkS"/>
+                            <constraint firstItem="xqY-jq-22v" firstAttribute="bottom" secondItem="lem-be-Ziw" secondAttribute="bottom" id="znY-Qd-icG"/>
+                        </constraints>
                         <viewLayoutGuide key="safeArea" id="xqY-jq-22v"/>
                     </view>
-                    <navigationItem key="navigationItem" id="uht-eD-FIH"/>
+                    <navigationItem key="navigationItem" title="Result" id="uht-eD-FIH">
+                        <barButtonItem key="backBarButtonItem" title="Retry" id="f3w-Y9-LC0"/>
+                    </navigationItem>
+                    <connections>
+                        <outlet property="resultLbl" destination="cmc-jV-6dL" id="gc6-wm-VdT"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="R2s-oe-mYm" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>

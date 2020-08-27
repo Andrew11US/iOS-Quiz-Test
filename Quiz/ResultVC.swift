@@ -9,7 +9,7 @@
 import UIKit
 
 class ResultVC: UIViewController {
-
+    @IBOutlet weak var resultLbl: UILabel!
     var topic: Topic?
     
     override func viewDidLoad() {
@@ -20,16 +20,37 @@ class ResultVC: UIViewController {
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(true)
         guard let topic = topic else { return }
-        print("Result: \(topic.latestResult)")
-    }
-    
-    @IBAction func tryAgainTapped(_ sender: UIButton) {
         
+        resultLbl.text = """
+        \(showResult(topic: topic))
+        
+        Your score is
+        \(topic.latestResult)%
+        """
     }
     
     @IBAction func backToQuizzesTapped(_ sender: UIButton) {
 //        dismiss(animated: true, completion: nil)
         self.view.window?.rootViewController?.dismiss(animated: true, completion: nil)
+    }
+    
+    private func showResult(topic: Topic) -> String {
+        switch topic.latestResult {
+        case 0..<30:
+            return "Just a try"
+        case 30..<50:
+            return "Something better than nothing"
+        case 50..<70:
+            return "Not bad"
+        case 70..<80:
+            return "Good one!"
+        case 80..<90:
+            return "Super!"
+        case 90...100:
+            return "Excellent!"
+        default:
+            return ""
+        }
     }
 
     /*
