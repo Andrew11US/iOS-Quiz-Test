@@ -14,13 +14,6 @@ class Answer: Object {
     @objc dynamic var imageUrl: String? = nil
     @objc dynamic var isCorrect: Int = 0
     
-    init(order: Int, text: String, isCorrect: Int, imageUrl: String?) {
-        self.order = order
-        self.text = text
-        self.imageUrl = imageUrl
-        self.isCorrect = isCorrect
-    }
-    
     // Initialization from JSON
     init(data: [String: AnyObject]) {
         self.order = data["order"] as? Int ?? 0
@@ -30,10 +23,6 @@ class Answer: Object {
     }
     
     required init() {}
-    
-//    override static func primaryKey() -> String? {
-//        return "text"
-//    }
 }
 
 

@@ -52,7 +52,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
-		010D1F8224F1961E00A8F29D /* Quiz.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Quiz.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		010D1F8224F1961E00A8F29D /* Quizzes.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Quizzes.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		010D1F8524F1961E00A8F29D /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		010D1F8724F1961E00A8F29D /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
 		010D1F8924F1961E00A8F29D /* QuizListVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QuizListVC.swift; sourceTree = "<group>"; };
@@ -134,7 +134,7 @@
 		010D1F8324F1961E00A8F29D /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				010D1F8224F1961E00A8F29D /* Quiz.app */,
+				010D1F8224F1961E00A8F29D /* Quizzes.app */,
 				010D1F9824F1961F00A8F29D /* QuizTests.xctest */,
 				010D1FA324F1961F00A8F29D /* QuizUITests.xctest */,
 			);
@@ -293,7 +293,7 @@
 			);
 			name = Quiz;
 			productName = Quiz;
-			productReference = 010D1F8224F1961E00A8F29D /* Quiz.app */;
+			productReference = 010D1F8224F1961E00A8F29D /* Quizzes.app */;
 			productType = "com.apple.product-type.application";
 		};
 		010D1F9724F1961F00A8F29D /* QuizTests */ = {
@@ -713,7 +713,7 @@
 					"@executable_path/Frameworks",
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = com.Andrew11US.Quiz;
-				PRODUCT_NAME = "$(TARGET_NAME)";
+				PRODUCT_NAME = Quizzes;
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
@@ -734,7 +734,7 @@
 					"@executable_path/Frameworks",
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = com.Andrew11US.Quiz;
-				PRODUCT_NAME = "$(TARGET_NAME)";
+				PRODUCT_NAME = Quizzes;
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};

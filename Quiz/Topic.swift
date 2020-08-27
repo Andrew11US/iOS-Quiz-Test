@@ -21,15 +21,6 @@ class Topic: Object {
     @objc dynamic var incorrect: Int = 0
     @objc dynamic var latestResult: Int = 0
     
-//    init(id: Int, title: String, questionsCount: Int, category: String, imageUrl: String? = nil, questions: [Question]) {
-//        self.id = id
-//        self.title = title
-//        self.questionsCount = questionsCount
-//        self.category = category
-//        self.imageUrl = imageUrl
-//        self.questions = questions
-//    }
-    
     // Initialization from JSON
     init(data: [String: AnyObject]) {
         self.id = data["id"] as? Int ?? 0

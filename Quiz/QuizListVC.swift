@@ -45,7 +45,6 @@ class QuizListVC: UIViewController {
             self.topics.append(topic)
         }
         quizzesTableView.reloadData()
-        
     }
     
     private func initializeDBFromEndpoint() {

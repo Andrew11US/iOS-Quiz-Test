@@ -14,7 +14,6 @@ class ResultVC: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -32,6 +31,10 @@ class ResultVC: UIViewController {
     @IBAction func backToQuizzesTapped(_ sender: UIButton) {
         self.createNotification(name: .didUpdateQuiz)
         self.navigationController?.popToRootViewController(animated: true)
+    }
+    
+    @IBAction func retryTapped(_ sender: UIButton) {
+        self.navigationController?.popViewController(animated: true)
     }
     
     private func showResult(topic: Topic) -> String {
