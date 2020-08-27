@@ -77,7 +77,15 @@ class QuizListVC: UIViewController {
             UserDefaults.standard.synchronize()
         }
     }
-
+    
+    // Prepare for segue method
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if let destination = segue.destination as? QuizVC {
+            if let topic = sender as? Topic {
+                destination.topic = topic
+            }
+        }
+    }
 }
 
 // MARK: - UITableView delegate and dataSource
@@ -95,7 +103,8 @@ extension QuizListVC: UITableViewDelegate, UITableViewDataSource {
     }
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        print("Selected")
+        let topic = topics[indexPath.row]
+        performSegue(withIdentifier: "toQuiz", sender: topic)
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {

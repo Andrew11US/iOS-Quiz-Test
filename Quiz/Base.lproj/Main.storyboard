@@ -89,11 +89,47 @@
                     <navigationItem key="navigationItem" title="Quiz" id="cYh-eR-yIh"/>
                     <connections>
                         <outlet property="quizzesTableView" destination="iLm-zO-Fwt" id="URi-t7-8v1"/>
+                        <segue destination="XWy-fE-nur" kind="show" identifier="toQuiz" id="qbk-UP-Laq"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="-284.05797101449275" y="-28.125"/>
+        </scene>
+        <!--QuizVC-->
+        <scene sceneID="JBH-hF-P0c">
+            <objects>
+                <viewController id="XWy-fE-nur" customClass="QuizVC" customModule="Quiz" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="d1O-80-6so">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                        <viewLayoutGuide key="safeArea" id="ilv-8w-JBQ"/>
+                    </view>
+                    <navigationItem key="navigationItem" id="lwH-Qd-DHc"/>
+                    <connections>
+                        <segue destination="4X8-EF-yCy" kind="show" identifier="toResult" id="BSg-2J-jsc"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="4Dl-Aw-hd3" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="703" y="-28"/>
+        </scene>
+        <!--ResultVC-->
+        <scene sceneID="p9s-yy-LFy">
+            <objects>
+                <viewController id="4X8-EF-yCy" customClass="ResultVC" customModule="Quiz" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="lMi-V1-Dgf">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                        <viewLayoutGuide key="safeArea" id="xqY-jq-22v"/>
+                    </view>
+                    <navigationItem key="navigationItem" id="uht-eD-FIH"/>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="R2s-oe-mYm" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1665" y="-28"/>
         </scene>
     </scenes>
 </document>
