@@ -41,25 +41,33 @@ class QuizVC: UIViewController {
     
     @IBAction func checkAnswerTapped(_ sender: AnswerButton) {
         guard let topic = topic else { return }
+        let realm = try! Realm()
+        answerButtons.forEach { $0.isHidden = true }
         
-        if sender.answer?.isCorrect == 1 {
-            correct += 1
+        try! realm.write {
+            if sender.answer?.isCorrect == 1 {
+                topic.correct += 1
+            } else {
+                topic.incorrect += 1
+            }
+            topic.progress += 1
+            realm.add(topic, update: .modified)
+        }
+        
+        if topic.progress < topic.questionsCount {
+            generateQuestion(topic: topic)
         } else {
-            incorrect += 1
+            try! realm.write {
+                topic.latestResult = Int((Double(topic.correct) / Double(topic.questionsCount))*100)
+                topic.progress = 0
+                topic.correct = 0
+                topic.incorrect = 0
+                realm.add(topic, update: .modified)
+            }
+            performSegue(withIdentifier: "toResult", sender: topic)
         }
-        answerButtons.forEach { (button) in
-            button.isHidden = true
-        }
-//        topic.progress += 1
-        generateQuestion(topic: topic)
-        print("Current: \(currectQuestion), C: \(correct) I: \(incorrect)")
-    }
-    
-    private func performQuiz(topic: Topic) {
-        var currectQuestion = topic.progress
-        var correct = topic.correct
-        var incorrect = topic.incorrect
         
+        print("Current: \(topic.progress), C: \(topic.correct) I: \(topic.incorrect)")
     }
     
     func generateQuestion(topic: Topic) {
@@ -71,15 +79,12 @@ class QuizVC: UIViewController {
         }
     }
     
-
-    
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
+    // Preparation to send results to ResultsVC
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destination.
-        // Pass the selected object to the new view controller.
+        if let destination = segue.destination as? ResultVC {
+            if let topic = sender as? Topic {
+                destination.topic = topic
+            }
+        }
     }
-    
-
 }

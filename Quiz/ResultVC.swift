@@ -10,12 +10,27 @@ import UIKit
 
 class ResultVC: UIViewController {
 
+    var topic: Topic?
+    
     override func viewDidLoad() {
         super.viewDidLoad()
 
-        // Do any additional setup after loading the view.
     }
     
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(true)
+        guard let topic = topic else { return }
+        print("Result: \(topic.latestResult)")
+    }
+    
+    @IBAction func tryAgainTapped(_ sender: UIButton) {
+        
+    }
+    
+    @IBAction func backToQuizzesTapped(_ sender: UIButton) {
+//        dismiss(animated: true, completion: nil)
+        self.view.window?.rootViewController?.dismiss(animated: true, completion: nil)
+    }
 
     /*
     // MARK: - Navigation

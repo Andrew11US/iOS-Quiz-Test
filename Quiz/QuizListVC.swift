@@ -24,7 +24,7 @@ class QuizListVC: UIViewController {
         retrieveDataFromDB()
     }
     
-    func retrieveDataFromDB() {
+    private func retrieveDataFromDB() {
         if topics.count == 0 {
             let topics = try! Realm().objects(Topic.self)
             
@@ -58,17 +58,14 @@ class QuizListVC: UIViewController {
                 DownloadManager.downloadTopic(id: id) { topic in
                     guard let topic = topic else { return }
                     self.topics.append(topic)
-                    if id == ids[ids.endIndex - 1] {
-                        DispatchQueue.main.async {
-                            self.removeSpinner(self.spinner)
-                            self.quizzesTableView.reloadData()
-                        }
-                    }
                     DispatchQueue.main.async {
-                        
                         let realm = try! Realm()
                         try! realm.write {
                             realm.add(topic)
+                        }
+                        if id == ids[ids.endIndex - 1] {
+                            self.removeSpinner(self.spinner)
+                            self.quizzesTableView.reloadData()
                         }
                     }
                 }
@@ -78,7 +75,7 @@ class QuizListVC: UIViewController {
         }
     }
     
-    // Prepare for segue method
+    // Prepare for segue to send selected topic
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if let destination = segue.destination as? QuizVC {
             if let topic = sender as? Topic {
