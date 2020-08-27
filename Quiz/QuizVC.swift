@@ -27,6 +27,7 @@ class QuizVC: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         answerButtons = [answer1, answer2, answer3, answer4]
+        self.navigationItem.leftBarButtonItem = UIBarButtonItem(title: "Back", style: .done, target: self, action: #selector(backTapped(_:)))
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -36,6 +37,11 @@ class QuizVC: UIViewController {
         navigationItem.title = topic.title
         generateQuestion(topic: topic)
         progressView.progress = Float(Double(topic.progress) / Double(topic.questionsCount))
+    }
+    
+    @objc func backTapped(_ sender: UIBarButtonItem) {
+        self.createNotification(name: .didUpdateQuiz)
+        self.navigationController?.popToRootViewController(animated: true)
     }
     
     @IBAction func checkAnswerTapped(_ sender: AnswerButton) {
